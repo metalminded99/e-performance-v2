@@ -13,12 +13,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BOOTSTRAP_DIR; ?>css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIR; ?>theme.css">
     <link rel="stylesheet" href="<?php echo FONT_DIR; ?>css/font-awesome.css">
-    <link href="<?php echo CSS_DIR; ?>jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="<?php echo JS_DIR; ?>jquery-1.9.0.min.js" type="text/javascript" language="javascript"></script>
     <script type="text/javascript">
         var base_url = '<?php echo base_url();?>';
     </script>
-    <script src="<?php echo JS_DIR; ?>jquery-ui-1.10.2.custom.min.js" type="text/javascript" language="javascript" charset="utf-8"></script>
     <script src="<?php echo JS_DIR; ?>jquery.validationEngine-en.js" type="text/javascript" language="javascript" charset="utf-8"></script>
     <script src="<?php echo JS_DIR; ?>jquery.validationEngine.js" type="text/javascript" language="javascript" charset="utf-8"></script>
     <script src="<?php echo CKEDITOR_DIR; ?>ckeditor.js" type="text/javascript" language="javascript"></script>

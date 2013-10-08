@@ -5,6 +5,8 @@ class Login extends MX_Controller
 
 	function __construct(){
 		parent::__construct();
+
+		$this->load->model("login_model");
 	}
 
 	function index(){
@@ -14,14 +16,34 @@ class Login extends MX_Controller
 				  	 );
 
 		if( $this->input->post() ){
-			$this->validate_login();
+			if( !$this->authenticate() ) {
+				$data['msg'] = 'Invalid username or password.';
+			}
 		}
 
 		loadLoginLayout('login', $data);
 	}
 
-	function validate_login() {
-		return false;
+	function authenticate() {
+		if( $this->input->is_ajax_request() ){
+			$auth = $this->login_model->authenticate(
+														 $this->input->post( 'username' )
+														,$this->input->post( 'password' )
+													);
+
+			if( $auth->num_rows() ){
+				$this->session->set_userdata( array( 'logged_in' => true ) );
+				$this->session->set_userdata( $auth->row_array() );
+
+				echo base_url().'dashboard';
+			}else
+				echo false;
+		}
+	}
+
+	function logout(){
+		$this->session->sess_destroy();
+		redirect( base_url() );
 	}
 }
 ?>
